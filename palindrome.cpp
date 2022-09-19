@@ -19,20 +19,23 @@ int main() {
       index++;
       size++;
       palindrome[index] = (char) character;
-      reverse[80-index] = (char) character;
     }
     else if(character <= 90  && character >= 65) {
       character += 32;
       index++;
       size ++;
       palindrome[index] = (char) character;
-      reverse[80-index] = (char) character;
     }
     
   }
+  int reverseIndex = 0;
+  for(int i = size; i >=0; i--) {
+    reverse[reverseIndex] = palindrome[i];
+    reverseIndex++;
+  }
+  
   cout << "Palindrome: " << palindrome << endl;
   cout << "reverse: " << reverse << endl;
-  
   
   return 0;
 }
