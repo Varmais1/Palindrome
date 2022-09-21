@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cstring>
-
+/*Name: Ishaan Varma
+Purpose of this file: Where everything for the Palindrome program is
+Purpose of thsi file cont: Where the input is taken in, and 
+ */
 
 using namespace std;
 
@@ -23,9 +26,9 @@ int main() {
     }
     if(nullcheck == false) {
       if(character <= 122 && character >= 97) {
-        index++;
         size++;
         palindrome[index] = (char) character;
+	index++;
       }
       else if(character <= 90  && character >= 65) {
         character += 32;
@@ -36,12 +39,25 @@ int main() {
     }
   }
   int reverseIndex = 0;
-  for(int i = size; i >=0; i--) {
+  for(int i = size-1; i >=0; i--) {
     reverse[reverseIndex] = palindrome[i];
     reverseIndex++;
   }
+  palindrome[size] = '\0';
+  reverse[size] = '\0';
+  /*for(int i = 0; i <= size; i++) {
+    cout << "palindrome[" << i << "]: " << palindrome[i] << endl;
+  }
+  for(int i = 0; i <= size; i++) {
+    cout << "reverse[" << i << "]: " << reverse[i] << endl;
+    }*/
+  bool actualPalindrome = false;
+  //cout << "comparison result: " << strcmp(palindrome,reverse) << endl;
   if(strcmp(palindrome,reverse) == 0) {
-  cout << "This is a palindrome!" << endl;
+    actualPalindrome = true;
+  }
+  if(actualPalindrome == true) {
+    cout << "This is a palindrome!" << endl;
   }
   else {
     cout << "This is not a palindrome." << endl;
